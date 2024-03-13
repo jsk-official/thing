@@ -38,7 +38,7 @@ jobs:
 
       - name: List home
         run : |
-          ls ~/maxmindfiles
+          ls /home/runner/maxmindfiles
 
       - name: Get current date
         id: date
@@ -60,4 +60,4 @@ jobs:
           name: Weekly Update
           draft: false
           prerelease: false
-          artifacts: "~/maxmindfiles/robloxasn.txt"
+          artifacts: "/home/runner/maxmindfiles/robloxasn.txt"
