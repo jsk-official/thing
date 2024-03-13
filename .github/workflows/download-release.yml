@@ -43,8 +43,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Weekly Update
-          release_name: Weekly Update
+          tag: Weekly Update
+          name: Weekly Update
           draft: false
           prerelease: false
           artifacts: "~/robloxasn.txt"
