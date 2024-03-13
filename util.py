@@ -108,7 +108,7 @@ class MaxMindDB:
                     else:
                         combined += 'Unknown,'
 
-            file = open('~/robloxasn.txt', 'w')
+            file = open('~/maxmindfiles/robloxasn.txt', 'w')
             file.write(combined)
             file.close()
         else:
