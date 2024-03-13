@@ -44,7 +44,6 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1
         with:
-          tag: Weekly Update
           name: Weekly Update
           draft: false
           prerelease: false
