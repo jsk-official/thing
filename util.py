@@ -85,7 +85,7 @@ class MaxMindDB:
             filename = '/home/runner/work/maxmindfiles/' + dirname + '/GeoLite2-City.mmdb'
 
             print(filename)
-            print(os.listdir('/home/runner/work//maxmindfiles/' + dirname))
+            print(os.listdir('/home/runner/work/maxmindfiles/' + dirname))
             
             reader = maxminddb.Reader(filename)
 
@@ -108,7 +108,7 @@ class MaxMindDB:
                     else:
                         combined += 'Unknown,'
 
-            file = open('~/maxmindfiles/robloxasn.txt', 'w')
+            file = open('/home/runner/work/maxmindfiles/robloxasn.txt', 'w')
             file.write(combined)
             file.close()
         else:
