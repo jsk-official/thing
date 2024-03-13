@@ -42,7 +42,7 @@ jobs:
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +%s)"
+        run: echo "date=$(date +%s)" > $GITHUB_OUTPUT
 
       - name: Empty commit push
         run: |
