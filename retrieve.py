@@ -9,7 +9,6 @@ def get_license_key(license_key='MAXMIND_LICENSE_KEY'):
     """
     try:
         maxmind_db_license = os.environ[license_key]
-        print(maxmind_db_license)
         return maxmind_db_license
     except Exception:
         print("\nWARNING: No MAXMIND LICENSE KEY Found in environment variables")
