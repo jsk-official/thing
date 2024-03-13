@@ -52,6 +52,8 @@ jobs:
           git tag ${{ steps.date.outputs.date }}
           git push origin ${{ steps.date.outputs.date }}
           git push origin -f master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
         id: create_release
