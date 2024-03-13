@@ -40,10 +40,22 @@ jobs:
         run : |
           ls /home/runner/work/maxmindfiles
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      - name: Empty commit push
+        run: |
+          git config --global user.email "amogus@amogusmail.com"
+          git config --global user.name "amogus"
+          git commit --allow-empty -m "Updated: ${{ steps.date.outputs.date }}"
+          git tag ${{ steps.date.outputs.date }}
+
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
         with:
+          tag: ${{ steps.date.outputs.date }}
           name: Weekly Update
           draft: false
           prerelease: false
