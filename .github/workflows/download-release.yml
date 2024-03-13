@@ -50,12 +50,14 @@ jobs:
           git config --global user.name "amogus"
           git commit --allow-empty -m "Updated: ${{ steps.date.outputs.date }}"
           git tag ${{ steps.date.outputs.date }}
+          git push origin ${{ steps.date.outputs.date }}
+          git push origin -f master
 
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.date.outputs.date }}
+          tag: UnixTime-${{ steps.date.outputs.date }}
           name: Weekly Update
           draft: false
           prerelease: false
