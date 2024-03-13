@@ -40,18 +40,11 @@ jobs:
         run : |
           ls /home/runner/work/maxmindfiles
 
-      - name: Date
-        id: date
-        run: date +%s >> $GITHUB_OUTPUT
-
-      - name: Print Date
-        run: echo "${{ steps.date.outputs }}"
-
       - name: Create tag
         run: |
           git config --global user.email "amogus@amogusmail.com"
           git config --global user.name "amogus"
-          git tag ${{ steps.date.outputs }}
+          git tag 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -59,7 +52,6 @@ jobs:
         id: create_release
         uses: ncipollo/release-action@v1
         with:
-          tag: mogus
           name: Weekly Update
           draft: false
           prerelease: false
