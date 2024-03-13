@@ -72,16 +72,18 @@ class MaxMindDB:
             file.write(response.content)
             file.close()
 
-            if os.path.isdir('./maxmindfiles'):
-                shutil.rmtree('./maxmindfiles')
+            if os.path.isdir('~/maxmindfiles'):
+                shutil.rmtree('~/maxmindfiles')
 
             file = tarfile.open(name)
-            file.extractall('./maxmindfiles')
+            file.extractall('~/maxmindfiles')
             file.close()
 
-            dirname = os.listdir('./maxmindfiles')[0]
+            print(os.path.isdir('~/maxmindfiles'))
+
+            dirname = os.listdir('~/maxmindfiles')[0]
             
-            reader = maxminddb.Reader('./maxmindfiles/' + dirname + '/GeoLite2-city.mmdb')
+            reader = maxminddb.Reader('~/maxmindfiles/' + dirname + '/GeoLite2-city.mmdb')
 
             combined = ''
 
