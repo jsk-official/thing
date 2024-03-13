@@ -85,6 +85,8 @@ class MaxMindDB:
             
             reader = maxminddb.Reader('~/maxmindfiles/' + dirname + '/GeoLite2-city.mmdb')
 
+            print(os.listdir('~/maxmindfiles/' + dirname))
+
             combined = ''
 
             for ip in ipaddress.IPv4Network('128.116.0.0/17'):
