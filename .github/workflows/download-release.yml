@@ -33,6 +33,17 @@ jobs:
         run : |
           python main.py
 
-      - name: List directory
+      - name: List home
         run : |
-          ls
+          ls ~
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.date.outputs.date }} 
+          release_name: Weekly Update
+          draft: false
+          prerelease: false
