@@ -106,7 +106,7 @@ class MaxMindDB:
                         else:
                             combined += values['names']['en'] + ','
                     else:
-                        combined += 'Unknown,'
+                        combined += ','
 
             file = open('/home/runner/work/maxmindfiles/robloxasn.txt', 'w')
             file.write(combined)
