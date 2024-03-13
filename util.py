@@ -84,10 +84,10 @@ class MaxMindDB:
 
             filename = '~/maxmindfiles/' + dirname + '/GeoLite2-City.mmdb'
 
-            print(dirname + '/' + filename)
+            print(filename)
             print(os.listdir('~/maxmindfiles/' + dirname))
             
-            reader = maxminddb.Reader(dirname + '/' + filename)
+            reader = maxminddb.Reader(filename)
 
             combined = ''
 
