@@ -79,15 +79,13 @@ class MaxMindDB:
             file.extractall('~/maxmindfiles')
             file.close()
 
-            print(os.path.isdir('~/maxmindfiles'))
-
             dirname = os.listdir('~/maxmindfiles')[0]
-            filename = os.listdir(dirname)[0]
+            filename = os.listdir('~/maxmindfiles/' + dirname)[0]
 
-            print(filename)
-            print(os.listdir(dirname))
+            print('~/maxmindfiles/' + dirname + '/' + filename)
+            print(os.listdir('~/maxmindfiles/' + dirname))
             
-            reader = maxminddb.Reader(filename)
+            reader = maxminddb.Reader('~maxmindfiles/' + dirname + '/' + filename)
 
             combined = ''
 
