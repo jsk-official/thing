@@ -50,8 +50,6 @@ jobs:
           git config --global user.name "amogus"
           git commit --allow-empty -m "Updated: ${{ steps.date.outputs.date }}"
           git tag ${{ steps.date.outputs.date }}
-          git push origin ${{ steps.date.outputs.date }}
-          git push origin -f master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -64,3 +62,5 @@ jobs:
           draft: false
           prerelease: false
           artifacts: "/home/runner/work/maxmindfiles/robloxasn.txt"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
