@@ -48,10 +48,7 @@ jobs:
         run: |
           git config --global user.email "amogus@amogusmail.com"
           git config --global user.name "amogus"
-          git commit --allow-empty -m "Updated: ${{ steps.date.outputs.date }}"
-          git tag -a ${{ steps.date.outputs.date }} -m "Update: ${{ steps.date.outputs.date }}"
-          git push origin thing
-          git push origin -f master
+          git tag ${{ steps.date.outputs.date }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
