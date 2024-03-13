@@ -1,4 +1,4 @@
-name: Download & Release GeoLite Country and ASN Databases
+name: Download & Release ROBLOX ASN data
 
 on:
   workflow_dispatch: # enable manual run
