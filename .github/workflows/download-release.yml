@@ -44,6 +44,7 @@ jobs:
         run: |
           git config --global user.email "amogus@amogusmail.com"
           git config --global user.name "amogus"
+          git push --delete origin mogus
           git tag mogus
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
