@@ -102,7 +102,7 @@ class MaxMindDB:
             for range in ranges:
                 print("Adding range", range)
                 for ip in ipaddress.IPv4Network(range):
-                    if not covered[ip]:
+                    if not covered.get(ip):
                         data = reader.get(ip)
         
                         combined += str(ip) + ','
