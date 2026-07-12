@@ -98,7 +98,7 @@ class MaxMindDB:
             covered = {}
 
             for range in ranges:
-                for ip in ipaddress.IPv4Network('128.116.0.0/17'):
+                for ip in ipaddress.IPv4Network(range):
                     if not covered[ip]:
                         data = reader.get(ip)
         
