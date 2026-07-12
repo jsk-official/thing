@@ -95,24 +95,27 @@ class MaxMindDB:
             ranges = rangesfile.read().split("\n")
 
             combined = ''
+            covered = {}
 
             for range in ranges:
                 for ip in ipaddress.IPv4Network('128.116.0.0/17'):
-                    data = reader.get(ip)
-    
-                    combined += str(ip) + ','
-    
-                    for key in keylist:
-                        if key in data:
-                            values = data[key]
-                            if key == 'subdivisions':
-                                combined += values[0]['names']['en'] + ','
-                            elif key == 'country':
-                                combined += values['names']['en'] + '\n'
+                    if not covered[ip]:
+                        data = reader.get(ip)
+        
+                        combined += str(ip) + ','
+                        covered[ip] = True
+        
+                        for key in keylist:
+                            if key in data:
+                                values = data[key]
+                                if key == 'subdivisions':
+                                    combined += values[0]['names']['en'] + ','
+                                elif key == 'country':
+                                    combined += values['names']['en'] + '\n'
+                                else:
+                                    combined += values['names']['en'] + ','
                             else:
-                                combined += values['names']['en'] + ','
-                        else:
-                            combined += ','
+                                combined += ','
 
             file = open('/home/runner/work/maxmindfiles/robloxasn.txt', 'w')
             file.write(combined)
