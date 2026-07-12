@@ -101,24 +101,28 @@ class MaxMindDB:
 
             for range in ranges:
                 print("Adding range", range)
-                for ip in ipaddress.IPv4Network(range):
-                    if not covered.get(ip):
-                        data = reader.get(ip)
-        
-                        combined += str(ip) + ','
-                        covered[ip] = True
-        
-                        for key in keylist:
-                            if key in data:
-                                values = data[key]
-                                if key == 'subdivisions':
-                                    combined += values[0]['names']['en'] + ','
-                                elif key == 'country':
-                                    combined += values['names']['en'] + '\n'
+
+                try:
+                    for ip in ipaddress.IPv4Network(range):
+                        if not covered.get(ip):
+                            data = reader.get(ip)
+            
+                            combined += str(ip) + ','
+                            covered[ip] = True
+            
+                            for key in keylist:
+                                if key in data:
+                                    values = data[key]
+                                    if key == 'subdivisions':
+                                        combined += values[0]['names']['en'] + ','
+                                    elif key == 'country':
+                                        combined += values['names']['en'] + '\n'
+                                    else:
+                                        combined += values['names']['en'] + ','
                                 else:
-                                    combined += values['names']['en'] + ','
-                            else:
-                                combined += ','
+                                    combined += ','
+                except Exception:
+                    print("Skipping range", range)
 
             file = open('/home/runner/work/maxmindfiles/robloxasn.txt', 'w')
             file.write(combined)
