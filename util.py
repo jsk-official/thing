@@ -81,7 +81,7 @@ class MaxMindDB:
             file.close()
 
             dirname = os.listdir('/home/runner/work/maxmindfiles')[0]
-            print(os.listdir('/home/runner/work'))
+            print(os.listdir('/home/runner/work/thing'))
             print(os.listdir('/home/runner/work/maxmindfiles/' + dirname))
 
             dir = '/home/runner/work/maxmindfiles/' + dirname
