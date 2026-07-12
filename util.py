@@ -81,6 +81,7 @@ class MaxMindDB:
             file.close()
 
             dirname = os.listdir('/home/runner/work/maxmindfiles')[0]
+            print(os.listdir('/home/runner/work'))
             print(os.listdir('/home/runner/work/maxmindfiles/' + dirname))
 
             dir = '/home/runner/work/maxmindfiles/' + dirname
@@ -89,9 +90,6 @@ class MaxMindDB:
             print(os.listdir('/home/runner/work/maxmindfiles/' + dirname))
             
             reader = maxminddb.Reader(dir + '/GeoLite2-City.mmdb')
-            asnreader = maxminddb.Reader(dir + "GeoLite2-ASN.mmdb")
-
-            print(asnreader.get("128.116.0.0/17"))
 
             combined = ''
 
