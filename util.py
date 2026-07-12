@@ -43,6 +43,7 @@ class MaxMindDB:
     # name given by MaxMind, name of the extracted DB, directory of the downloaded file from MaxMind
     helpers = {
         "city": ['GeoLite2-City_', 'GeoLite2-City.mmdb',str(Path(directory, ("GeoLite2-City.tar.gz").format(date=datetime.today().strftime('%Y%m%d'))))]
+        "asn": ['GeoLite2-ASN_', 'GeoLite2-ASN.mmdb',str(Path(directory, ("GeoLite2-ASN.tar.gz").format(date=datetime.today().strftime('%Y%m%d'))))]
     }
 
 
@@ -82,12 +83,15 @@ class MaxMindDB:
             dirname = os.listdir('/home/runner/work/maxmindfiles')[0]
             print(os.listdir('/home/runner/work/maxmindfiles/' + dirname))
 
-            filename = '/home/runner/work/maxmindfiles/' + dirname + '/GeoLite2-City.mmdb'
+            dir = '/home/runner/work/maxmindfiles/' + dirname
 
             print(filename)
             print(os.listdir('/home/runner/work/maxmindfiles/' + dirname))
             
-            reader = maxminddb.Reader(filename)
+            reader = maxminddb.Reader(dir + '/GeoLite2-City.mmdb')
+            asnreader = maxminddb.Reader(dir + "GeoLite2-ASN.mmdb")
+
+            print(asnreader.get("128.116.0.0/17"))
 
             combined = ''
 
