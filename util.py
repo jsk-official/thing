@@ -94,6 +94,8 @@ class MaxMindDB:
             rangesfile = open("/home/runner/work/thing/ranges.txt", "r")
             ranges = rangesfile.read().split("\n")
 
+            print(ranges, len(ranges))
+
             combined = ''
             covered = {}
 
