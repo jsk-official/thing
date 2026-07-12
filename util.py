@@ -81,7 +81,7 @@ class MaxMindDB:
             file.close()
 
             dirname = os.listdir('/home/runner/work/maxmindfiles')[0]
-            print(os.listdir('/home/runner/work/thing'))
+            print(os.listdir('/home/runner/work/thing/thing'))
             print(os.listdir('/home/runner/work/maxmindfiles/' + dirname))
 
             dir = '/home/runner/work/maxmindfiles/' + dirname
@@ -91,7 +91,7 @@ class MaxMindDB:
             
             reader = maxminddb.Reader(dir + '/GeoLite2-City.mmdb')
 
-            rangesfile = open("/home/runner/work/thing/ranges.txt", "r")
+            rangesfile = open("/home/runner/work/thing/thing/ranges.txt", "r")
             ranges = rangesfile.read().split("\n")
 
             print(ranges, len(ranges))
