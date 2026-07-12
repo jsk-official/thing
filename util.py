@@ -42,7 +42,7 @@ class MaxMindDB:
     # Dict to lookup const's, structured like this:
     # name given by MaxMind, name of the extracted DB, directory of the downloaded file from MaxMind
     helpers = {
-        "city": ['GeoLite2-City_', 'GeoLite2-City.mmdb',str(Path(directory, ("GeoLite2-City.tar.gz").format(date=datetime.today().strftime('%Y%m%d'))))]
+        "city": ['GeoLite2-City_', 'GeoLite2-City.mmdb',str(Path(directory, ("GeoLite2-City.tar.gz").format(date=datetime.today().strftime('%Y%m%d'))))],
         "asn": ['GeoLite2-ASN_', 'GeoLite2-ASN.mmdb',str(Path(directory, ("GeoLite2-ASN.tar.gz").format(date=datetime.today().strftime('%Y%m%d'))))]
     }
 
