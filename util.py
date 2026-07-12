@@ -85,7 +85,7 @@ class MaxMindDB:
 
             dir = '/home/runner/work/maxmindfiles/' + dirname
 
-            print(filename)
+            print(dir)
             print(os.listdir('/home/runner/work/maxmindfiles/' + dirname))
             
             reader = maxminddb.Reader(dir + '/GeoLite2-City.mmdb')
